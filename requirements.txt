@@ -2,4 +2,7 @@ pytest
 numpy
 matplotlib
 scipy
+sys
+os
+math
 # TODO: add additional package

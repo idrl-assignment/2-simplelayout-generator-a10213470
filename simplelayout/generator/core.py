@@ -4,11 +4,13 @@
 
 
 import numpy as np
+import math
 
 
 def generate_matrix(
     board_grid: int, unit_grid: int, unit_n: int, positions: list
 ) -> np.ndarray:
+
     """生成指定布局矩阵
 
     Args:
@@ -19,4 +21,14 @@ def generate_matrix(
     Returns:
         np.ndarray: 布局矩阵
     """
-    raise NotImplementedError  # TODO: 实现布局矩阵的生成
+    board = np.zeros((board_grid, board_grid), dtype=int)
+    unit = np.ones((unit_grid, unit_grid))
+    for i in positions:
+        x_start = math.ceil(i/(board_grid/unit_grid)-1) * unit_grid
+        temp = int(i % (board_grid/unit_grid))-1
+        if temp == -1:
+            temp = int(board_grid/unit_grid)-1
+        y_start = temp * unit_grid
+        board[x_start:x_start+unit_grid, y_start: y_start+unit_grid] = unit
+
+    return board
