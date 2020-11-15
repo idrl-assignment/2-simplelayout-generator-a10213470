@@ -1,8 +1,6 @@
 """
 辅助函数
 """
-
-from pathlib import Path
 import matplotlib.pyplot as plt
 import scipy.io as sio
 import os
@@ -23,4 +21,3 @@ def make_dir(outdir):
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     # TODO: 当目录 outdir 不存在时创建目录
-
